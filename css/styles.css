@@ -1,0 +1,414 @@
+/* --- GLOBAL --- */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: lightcoral;
+  max-width: 100%;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.loadingContainer {
+  display: none;
+  text-align: center;
+}
+
+.loadingText {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+/* --- Loading animation --- */
+#loadingAnimation {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 0 auto;
+  border: 10px solid #ffffff;
+  border-top-color: #d85813;
+  border-radius: 50%;
+  animation: spin 1s ease-in-out infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* --- --- */
+
+.results {
+  padding: 10px;
+}
+
+.errorMessage {
+  width: fit-content;
+  border: 2px solid darkred;
+  background-color: rgb(232, 190, 190);
+  color: darkred;
+  padding: 20px;
+  font-size: 1.5em;
+}
+
+/* --- index.html --- */
+
+/* --- Navigation top --- */
+.navToContact {
+  display: flex;
+  width: fit-content;
+  padding: 10px;
+  margin: 15px 15px 15px auto;
+  border-radius: 5px;
+  background-color: white;
+  font-size: 1.5em;
+}
+
+.navToContact:hover {
+  transition: 0.1s ease-in-out;
+  box-shadow: 3px 3px 5px black;
+}
+
+/* Main */
+
+.title_index {
+  text-align: center;
+}
+
+/* Container for all Pokemon-cards */
+.pokemonContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.pokemonCard {
+  cursor: pointer;
+  display: block;
+  width: 240px;
+  height: 250px;
+  border: 1px solid lightgray;
+  margin: 5px;
+  background-color: white;
+}
+
+.pokemonCard:hover {
+  transition: 0.1s ease-in-out;
+  box-shadow: 5px 5px 5px black;
+}
+
+.pokeImg {
+  display: flex;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 0 auto;
+}
+
+.pokeName {
+  font-size: 2em;
+  color: red;
+  text-align: center;
+}
+
+.pokeId {
+  font-size: 1em;
+  color: green;
+  text-align: center;
+}
+
+.pokeType {
+  font-size: 1em;
+  color: rgb(206, 134, 0);
+  text-align: center;
+}
+
+@media only screen and (max-width: 499px) {
+  .pokemonCard {
+    width: 200px;
+    height: 210px;
+  }
+  .pokeImg {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* @media only screen and (min-width: 500px) and (max-width: 799px) {
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1899px) {
+} */
+
+/* --- Details.html --- */
+/* --- Navigation top --- */
+.navBack {
+  display: flex;
+  width: fit-content;
+  padding: 10px;
+  margin: 15px auto 15px 15px;
+  border-radius: 5px;
+  background-color: white;
+  font-size: 1.5em;
+}
+
+.navBack:hover {
+  transition: 0.1s ease-in-out;
+  box-shadow: 3px 3px 5px black;
+}
+
+/* --- Main --- */
+.title_details {
+  position: relative;
+  top: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2em;
+}
+
+.pokeDetails {
+  display: block;
+}
+
+.pokeImg_details {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.pokeImgFront,
+.pokeImgBack {
+  width: 300px;
+  height: 300px;
+  background-color: white;
+  border-radius: 5px;
+  margin: 10px 10px;
+}
+
+.pokeImgFront {
+  margin-left: auto;
+}
+.pokeImgBack {
+  margin-right: auto;
+}
+
+.pokeInformation {
+  background-color: white;
+  padding: 10px 0 10px 0;
+}
+
+.pokeId_details,
+.pokeType_details {
+  font-size: 2em;
+  text-align: center;
+  padding: 10px;
+}
+
+.pokeId_details {
+  color: green;
+}
+.pokeType_details {
+  color: rgb(206, 134, 0);
+}
+
+.variousPokeInfo {
+  display: flex;
+  font-size: 2em;
+  justify-content: center;
+  margin: 10px auto 0 auto;
+}
+
+.pokeWeight,
+.pokeHeight {
+  padding: 15px 40px 15px 40px;
+}
+
+.pokemonStats {
+  font-size: 2em;
+  margin: 0 0 0 10px;
+}
+
+.statsBar {
+  max-width: 70%;
+  background-color: white;
+  padding: 10px;
+  margin: 0 auto 10px auto;
+  border-radius: 5px;
+  font-weight: bold;
+  color: black;
+  border: 1.5px solid black;
+}
+
+.statsHp {
+  background-color: rgba(0, 128, 0, 0.5);
+}
+.statsAttack {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+.statsDefence {
+  background-color: rgba(0, 0, 255, 0.5);
+}
+.statsSpeed {
+  background-color: rgba(255, 255, 0, 0.5);
+}
+.bulbapediaLink {
+  display: flex;
+  font-size: 1.5em;
+  font-weight: bolder;
+  max-width: fit-content;
+  padding: 10px;
+  margin: 10px auto 10px auto;
+}
+
+.bulbapediaLink:hover {
+  transition: 0.1s ease-in-out;
+  box-shadow: 1px 1px 5px black;
+  background-color: rgb(235, 150, 150);
+  border-radius: 5px;
+}
+
+/* --- Navigation bottom --- */
+/* .pokemon-selector_details {
+  display: flex;
+  padding: 0;
+  list-style-type: none;
+}
+
+.prev-pokemon,
+.next-pokemon {
+  display: flex;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  width: 9em;
+  justify-content: center;
+  font-size: 2em;
+  margin: 0 auto 0 auto;
+} */
+
+@media only screen and (max-width: 499px) {
+  .title_details {
+    font-size: 1.5em;
+  }
+  .pokeImgFront,
+  .pokeImgBack {
+    width: 150px;
+    height: 150px;
+  }
+  .variousPokeInfo {
+    max-width: 85%;
+    font-size: 1.1em;
+  }
+  .pokemonStats {
+    font-size: 1.7em;
+    margin: 0;
+  }
+  .statsBar {
+    max-width: 80%;
+  }
+  .bulbapediaLink {
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  /* --- Navigation bottom --- */
+  /* .pokemon-selector_details {
+    gap: 5px;
+  }
+
+  .prev-pokemon,
+  .next-pokemon {
+    width: 4em;
+    font-size: 1.5em;
+  } */
+}
+
+/* @media only screen and (min-width: 500px) and (max-width: 799px) {
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1899px) {
+} */
+
+/* --- contact.html --- */
+
+#contactForm {
+  background-color: white;
+  width: 450px;
+  min-height: 300px;
+  padding: 2em;
+  border-radius: 1rem;
+  margin: 0 auto 0 auto;
+}
+
+.formLabel {
+  font-size: 1em;
+  margin: 0 20px;
+}
+
+.formInput {
+  display: flex;
+  width: 400px;
+  height: 30px;
+  border-radius: 3px;
+  margin: 0 20px;
+}
+
+#subject {
+  min-width: 400px;
+  max-width: 400px;
+  min-height: 100px;
+  max-height: 300px;
+}
+
+.form-error {
+  position: relative;
+  bottom: 15px;
+  margin: 0 20px;
+  display: none;
+  color: red;
+}
+
+.submitButton {
+  background-color: rgba(31, 76, 140, 0.85);
+  color: rgb(240, 240, 240);
+  font-size: 1em;
+  padding: 15px 90px;
+  display: flex;
+  margin: 10px auto 0 auto;
+  border: none;
+  border-radius: 3px;
+}
+
+.submitButton:hover {
+  transition: 0.1s ease-in-out;
+  box-shadow: 2px 2px 5px black;
+  color: rgb(255, 255, 255);
+  background-color: rgb(31, 76, 140);
+}
+
+@media only screen and (max-width: 499px) {
+  #contactForm {
+    width: fit-content;
+  }
+  .formLabel {
+    font-size: 1.2em;
+  }
+
+  .formInput {
+    width: 300px;
+  }
+  #subject {
+    min-width: 300px;
+    max-width: 300px;
+    min-height: 120px;
+    max-height: 320px;
+  }
+}
+
+/* @media only screen and (min-width: 500px) and (max-width: 799px) {
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1899px) {
+} */
