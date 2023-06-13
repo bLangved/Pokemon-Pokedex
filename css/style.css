@@ -1,0 +1,236 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: lightcoral;
+}
+
+main {
+  background-color: white;
+  width: min(80em, 100% - 4rem);
+  margin-inline: auto;
+}
+
+:root {
+  --card-color1: RGB(204, 50, 42);
+  --card-color2: RGB(230, 213, 150);
+  --card-color3: RGB(100, 44, 52);
+  --card-color4: RGB(180, 92, 100);
+  --card-color5: RGB(167, 185, 211);
+  --card-color6: RGB(76, 52, 52);
+  /* Color scheme was created by colorswall */
+  /* https://colorswall.com/palette/116389 */
+}
+
+.loadingContainer {
+  display: none;
+  text-align: center;
+}
+
+.loadingText {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+/* --- Loading animation --- */
+#loadingAnimation {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 0 auto;
+  border: 10px solid #ffffff;
+  border-top-color: #d85813;
+  border-radius: 50%;
+  animation: spin 1s ease-in-out infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* --- --- */
+
+.results {
+  padding: 1em;
+}
+
+.errorMessage {
+  width: fit-content;
+  border: 2px solid darkred;
+  background-color: rgb(232, 190, 190);
+  color: darkred;
+  padding: 20px;
+  font-size: 1.5em;
+}
+
+.nav_pokeGen {
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.nav_pokeGen ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.nav_pokeGen li {
+  padding: 1em 2em;
+  width: 6em;
+  text-align: center;
+  background-color: rgb(50, 50, 50);
+}
+
+.nav_pokeGen a {
+  color: white;
+}
+
+/* --- index.html --- */
+
+/* Main */
+
+.hero-title,
+.generation-title {
+  text-align: center;
+}
+
+/* Container for all Pokemon-cards */
+.pokeCardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 0.5em;
+}
+
+.pokeCard {
+  display: flex;
+  width: 100%;
+  height: 5em;
+  align-items: center;
+  gap: 1em;
+  background-color: var(--card-color4);
+}
+
+.pokeCard:hover {
+  box-shadow: 0px 0px 0.5em black;
+  transition: box-shadow 0.15s ease-in-out;
+}
+
+.pokeCard-image {
+  width: 4em;
+  height: 4em;
+  margin: auto 0 auto 5%;
+}
+
+.pokeCard-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.pokeCard-id {
+  font-size: 0.875rem;
+}
+
+.pokeCard-name {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 375px) {
+  .pokeCard-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .pokeCard-id {
+    font-size: 0.875rem;
+  }
+  .pokeCard-name {
+    margin-right: 5%;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+}
+
+@media screen and (min-width: 550px) {
+  .pokeCardContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5em;
+  }
+  .pokeCard {
+    display: flex;
+    width: 100%;
+    height: 6em;
+  }
+  .pokeCard-image {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 678px) {
+  .pokeCardContainer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 1em;
+    padding: 0;
+  }
+  .pokeCard {
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    width: 12em;
+    height: 12em;
+  }
+  .pokeCard-image {
+    width: 8em;
+    height: 8em;
+    margin: 0 auto;
+  }
+  .pokeCard-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pokeCard-id {
+    font-size: 1.25rem;
+    margin: 0 auto;
+  }
+
+  .pokeCard-name {
+    font-size: 1.5rem;
+    margin: 0 auto;
+  }
+}
