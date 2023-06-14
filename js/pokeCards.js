@@ -4,6 +4,10 @@ function createPokeCards (pokemon){
     const pokeCard = document.createElement("div");
     pokeCard.classList.add("pokeCard");
     
+    const pokeCardBackground = document.createElement("div");
+    pokeCardBackground.classList.add("pokeCard-background");
+    pokeCard.append(pokeCardBackground);
+
     const pokeCardImg = document.createElement("img");
     pokeCardImg.classList.add("pokeCard-image");
     pokeCardImg.src = pokemon.sprites.front_default;
