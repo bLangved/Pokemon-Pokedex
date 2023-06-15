@@ -4,91 +4,59 @@ import { showLoadingAnimation, hideLoadingAnimation } from "../components/loadin
 const errorMessageContainer = document.querySelector(".errorMessageContainer");
 const errorMessage = document.querySelector(".errorMessage");
 
-// API call for the pokiAPI containing info on pokemons. This API-call is for showing all 151 (1.gen) pokemons on index.html.  
+
+// const morePokemonBtn = document.querySelector(".showMorePokemon-btn");
+// morePokemonBtn.addEventListener("click", function(){
+//     start += 50;
+//     fetchAllPokemon(start, end);
+// })
 async function fetchAllPokemon() {
+    
 
     showLoadingAnimation();
     try{        
-        const pokemonPromises = [];
-        
-        // Looping through the API-call with the selected Pokémon generation. 
+
         if(currentPage === "1Gen"){
-            for(let i = 1; i <= 151; i++){
-                const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
-                const response = await fetch(url);
-                const pokemon = await response.json();    
-                pokemonPromises.push(pokemon);
-            }
+            await fetchPokemonInRange(1, 151);
         }
-        else if (currentPage === "2Gen"){
-            for(let i = 152; i <= 251; i++){
-                const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
-                const response = await fetch(url);
-                const pokemon = await response.json();    
-                pokemonPromises.push(pokemon);
-            }
+        else if(currentPage === "2Gen"){
+            await fetchPokemonInRange(152, 251);
         }
-        else if (currentPage === "3Gen"){
-            for(let i = 252; i <= 386; i++){
-                const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
-                const response = await fetch(url);
-                const pokemon = await response.json();    
-                pokemonPromises.push(pokemon);
-            }
+        else if(currentPage === "3Gen"){
+            await fetchPokemonInRange(252, 386);
         }
-        else if (currentPage === "4Gen"){
-            for(let i = 387; i <= 493; i++){
-                const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
-                const response = await fetch(url);
-                const pokemon = await response.json();    
-                pokemonPromises.push(pokemon);
-            }
+        else if(currentPage === "4Gen"){
+            await fetchPokemonInRange(387, 493);
         }
-        else if (currentPage === "5Gen"){
-            for(let i = 494; i <= 649; i++){
-                const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
-                const response = await fetch(url);
-                const pokemon = await response.json();    
-                pokemonPromises.push(pokemon);
-            }
+        else if(currentPage === "5Gen"){
+            await fetchPokemonInRange(494, 649);
         }
-        else if (currentPage === "6Gen"){
-            for(let i = 650; i <= 721; i++){
-                const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
-                const response = await fetch(url);
-                const pokemon = await response.json();    
-                pokemonPromises.push(pokemon);
-            }
+        else if(currentPage === "6Gen"){
+            await fetchPokemonInRange(650, 721);
         }
-        else if (currentPage === "7Gen"){
-            for(let i = 722; i <= 809; i++){
-                const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
-                const response = await fetch(url);
-                const pokemon = await response.json();    
-                pokemonPromises.push(pokemon);
-            }
+        else if(currentPage === "7Gen"){
+            await fetchPokemonInRange(722, 809);
         }
-        else if (currentPage === "8Gen"){
-            for(let i = 810; i <= 905; i++){
-                const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
-                const response = await fetch(url);
-                const pokemon = await response.json();    
-                pokemonPromises.push(pokemon);
-            }
+        else if(currentPage === "8Gen"){
+            await fetchPokemonInRange(810, 905);
         }
-        else if (currentPage === "9Gen"){
-            for(let i = 906; i <= 1016; i++){
-                const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
-                const response = await fetch(url);
-                const pokemon = await response.json();    
-                pokemonPromises.push(pokemon);
-            }
+        else if(currentPage === "9Gen"){
+            await fetchPokemonInRange(906, 1010);
         }
 
-        // Wait for all the promises to resolve 
-        const pokemons = await Promise.all(pokemonPromises);
+        async function fetchPokemonInRange(start, end) {
+            const pokemonPromises = [];
+          
+            for (let i = start; i <= end; i++) {
+              const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
+              const promise = fetch(url).then(response => response.json());
+              pokemonPromises.push(promise);
+            }
+          
+            const pokemons = await Promise.all(pokemonPromises);
+            iteratePokemons(pokemons);
+          }
 
-        iteratePokemons(pokemons);
         hideLoadingAnimation();
     }
     catch(error){

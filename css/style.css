@@ -24,6 +24,7 @@ video {
 
 button {
   border: none;
+  cursor: pointer;
 }
 
 p {
@@ -329,4 +330,19 @@ main {
     font-size: 1.25rem;
     margin: 0 auto;
   }
+}
+
+.showMorePokemonContainer {
+  width: 100%;
+  padding: 1em 0.5em;
+}
+
+.showMorePokemon-btn {
+  width: 100%;
+  height: 4em;
+  margin: 0 auto;
+  border-radius: 0.5em;
+  text-transform: uppercase;
+  background-color: var(--text-color);
+  color: var(--text-color-reverse);
 }
