@@ -5,15 +5,9 @@ const errorMessageContainer = document.querySelector(".errorMessageContainer");
 const errorMessage = document.querySelector(".errorMessage");
 
 
-// const morePokemonBtn = document.querySelector(".showMorePokemon-btn");
-// morePokemonBtn.addEventListener("click", function(){
-//     start += 50;
-//     fetchAllPokemon(start, end);
-// })
+showLoadingAnimation();
 async function fetchAllPokemon() {
     
-
-    showLoadingAnimation();
     try{        
 
         if(currentPage === "1Gen"){

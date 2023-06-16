@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Langveds Pokedex | 1.Generation</title>
+    <title>Langveds Pokedex | Selected Pokemon</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 </head>
 
-<body id="1Gen">
+<body id="selectedPokemon">
 
     <header>
         <div class="bannerContainer">
@@ -26,24 +26,10 @@
     </header>
 
     <main>
+        <h1 class="title_selectedPokemon">Selected Pokemon</h1>
+        <div class="pokemonId_selectedPokemon"></div>
 
-        <nav class="nav_pokeGen">
-            <ul>
-                <li><a href="firstGen.html">1.gen</a></li>
-                <li><a href="secondGen.html">2.gen</a></li>
-                <li><a href="thirdGen.html">3.gen</a></li>
-                <li><a href="forthGen.html">4.gen</a></li>
-                <li><a href="fifthGen.html.html">5.gen</a></li>
-                <li><a href="sixthGen.html">6.gen</a></li>
-                <li><a href="seventhGen.html">7.gen</a></li>
-                <li><a href="eighthGen.html">8.gen</a></li>
-                <li><a href="ninthGen.html">9.gen</a></li>
-            </ul>
-        </nav>
-
-        <h2 class="generation-title">First Generation</h2>
-
-        <div class="contentContainer">
+        <div class="contentContainer contentContainer_selectedPokemon">
 
             <div class="loadingContainer">
                 <p class="loadingText">Loading Pokemon...</p>
@@ -54,18 +40,15 @@
                 <div class="errorMessage"></div>
             </div>
 
-            <div class="pokeCardContainer"></div>
+            <div class="pokemonContainer"></div>
 
-            <div class="showMorePokemonContainer">
-                <button class="showMorePokemon-btn">Show more pokemons</button>
-            </div>
         </div>
     </main>
+
     <script src="js/components/themeToggle.js" defer></script>
     <script src="js/components/activeSite.js" defer></script>
     <script src="/js/components/displayError.js" defer></script>
-    <script type="module" src="js/fetchData/fetch-pokemonGeneration.js"></script>
-
+    <script type="module" src="js/fetchData/fetch-selectedpokemon.js"></script>
 </body>
 
 </html>

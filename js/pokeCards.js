@@ -3,7 +3,7 @@ const pokeCardContainer = document.querySelector(".pokeCardContainer");
 function createPokeCards (pokemon){
     const pokeCard = document.createElement("div");
     pokeCard.classList.add("pokeCard");
-    
+
     const pokeCardBackground = document.createElement("div");
     pokeCardBackground.classList.add("pokeCard-background");
     pokeCard.append(pokeCardBackground);
@@ -31,14 +31,15 @@ function createPokeCards (pokemon){
     
     pokeCard.append(textContainer);
     
-    pokeCardContainer.append(pokeCard);
+
+    // Create the card href, and move to selectedPokemon.html when clicked
+    const pokemonLink = document.createElement("a");
+    pokemonLink.href = `selectedPokemon.html?id=${pokemon.id}`;
+    
+    pokemonLink.append(pokeCard)
+
+    pokeCardContainer.append(pokemonLink);
 }
-
-
-
-
-
-
 
 
 
