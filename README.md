@@ -61,6 +61,7 @@ npm run build
 This will create a `dist` folder in the root of the project, which contains the compiled project.
 
 You can preview the build by running the following command:
+(OBS!! This might not work as of not, since this project is running both Netlify adapter and Astro, and is an experimental feature as of now)
 
 ```bash
 npm run preview
