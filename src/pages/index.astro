@@ -1,0 +1,67 @@
+---
+import '/src/css/style.css';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Pokedex</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+  </head>
+
+  <body id="index">
+    <header>
+      <div class="bannerContainer">
+        <a href="/">
+          <h1 class="banner-title">Langveds</h1>
+          <div class="banner-logo"></div>
+        </a>
+      </div>
+      <div class="themeToggle-container">
+        <span class="theme-text">Light theme</span>
+        <button class="toggle-theme"></button>
+      </div>
+    </header>
+
+    <main>
+      <nav id="navPokeGen" class="nav_pokeGen">
+        <ul>
+          <li id="1PokeGen">1.gen</li>
+          <li id="2PokeGen">2.gen</li>
+          <li id="3PokeGen">3.gen</li>
+          <li id="4PokeGen">4.gen</li>
+          <li id="5PokeGen">5.gen</li>
+          <li id="6PokeGen">6.gen</li>
+          <li id="7PokeGen">7.gen</li>
+          <li id="8PokeGen">8.gen</li>
+          <li id="9PokeGen">9.gen</li>
+        </ul>
+      </nav>
+
+      <h2 id="pokeGenTitle" class="generation-title"></h2>
+
+      <div class="contentContainer">
+        <div class="loadingContainer">
+          <p class="loadingText">Loading Pokemon...</p>
+          <div id="loadingAnimation"></div>
+        </div>
+
+        <div class="errorMessageContainer">
+          <div class="errorMessage"></div>
+        </div>
+
+        <div class="pokeCardContainer"></div>
+      </div>
+    </main>
+
+    <script src="/src/js/components/themeToggle.js" defer></script>
+    <script src="/src/js/components/activeSite.js" defer></script>
+    <script src="/src/js/components/displayError.js" defer></script>
+    <script type="module" src="/src/js/fetchData/fetch-pokemonGeneration.js"
+    ></script>
+  </body>
+</html>
