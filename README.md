@@ -1,4 +1,4 @@
-### Pokedex project
+# Pokedex project
 
 A frontend web application for checking out pokemons throughout all generations. Deployed site: https://pokedex4life.netlify.app/
 
@@ -15,6 +15,11 @@ This app gets its data from the pokèAPI: https://pokeapi.co/
 - Prettier
 - Concurrently
 - Vite
+- Netlify
+
+## Status badges
+[![Netlify Status](https://api.netlify.com/api/v1/badges/69a1ff8b-83c0-4d2a-8cd0-463d56610ad9/deploy-status)](https://app.netlify.com/sites/pokedex4life/deploys)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 ## Getting Started
 
