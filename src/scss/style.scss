@@ -94,6 +94,10 @@
   border-radius: 0.5em;
   gap: 1em;
   background-color: var(--card-color4);
+
+  span {
+    color: black;
+  }
 }
 
 .pokeCard:hover {
