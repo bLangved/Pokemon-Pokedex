@@ -1,4 +1,5 @@
 ---
+import SiteHeader from '../components/SiteHeader.astro';
 import '/src/css/style.css';
 ---
 
@@ -14,34 +15,8 @@ import '/src/css/style.css';
   </head>
 
   <body id="index">
-    <header>
-      <div class="bannerContainer">
-        <a href="/">
-          <h1 class="banner-title">Langveds</h1>
-          <div class="banner-logo"></div>
-        </a>
-      </div>
-      <div class="themeToggle-container">
-        <span class="theme-text">Light theme</span>
-        <button class="toggle-theme"></button>
-      </div>
-    </header>
-
+    <SiteHeader />
     <main>
-      <nav id="navPokeGen" class="nav_pokeGen">
-        <ul>
-          <li id="1PokeGen">1.gen</li>
-          <li id="2PokeGen">2.gen</li>
-          <li id="3PokeGen">3.gen</li>
-          <li id="4PokeGen">4.gen</li>
-          <li id="5PokeGen">5.gen</li>
-          <li id="6PokeGen">6.gen</li>
-          <li id="7PokeGen">7.gen</li>
-          <li id="8PokeGen">8.gen</li>
-          <li id="9PokeGen">9.gen</li>
-        </ul>
-      </nav>
-
       <h2 id="pokeGenTitle" class="generation-title"></h2>
 
       <div class="contentContainer">

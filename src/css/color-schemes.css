@@ -1,0 +1,30 @@
+:root {
+  --card-color1: RGB(204, 50, 42);
+  --card-color2: RGB(230, 213, 150);
+  --card-color3: RGB(100, 44, 52);
+  --card-color4: RGB(180, 92, 100);
+  --card-color5: RGB(167, 185, 211);
+  --card-color6: RGB(76, 52, 52);
+  /* Color scheme was created by colorswall */
+  /* https://colorswall.com/palette/116389 */
+}
+
+.light-theme {
+  --banner-logo: url(/src/images/pokedex_light-theme.png);
+  --theme-icon: url(/src/images/light_mode-icon.png);
+  --background-color: rgb(248, 248, 248);
+  --text-color: rgb(35, 35, 35);
+  --text-color-reverse: rgb(248, 248, 248);
+  --box-color: rgb(230, 230, 230);
+}
+
+.dark-theme {
+  --banner-logo: url(/src/images/pokedex_dark-theme.png);
+  --theme-icon: url(/src/images/dark_mode-icon.png);
+  --background-color: rgb(35, 35, 35);
+  --text-color: rgb(248, 248, 248);
+  --text-color-reverse: rgb(35, 35, 35);
+  --box-color: rgb(50, 50, 50);
+}
+
+/*# sourceMappingURL=color-schemes.css.map */

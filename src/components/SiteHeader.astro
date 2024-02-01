@@ -1,0 +1,70 @@
+<header>
+  <div class="bannerContainer">
+    <a href="/">
+      <h1 class="banner-title">Langveds</h1>
+      <div class="banner-logo"></div>
+    </a>
+  </div>
+  <div class="themeToggle-container">
+    <span class="theme-text">Light theme</span>
+    <button class="toggle-theme"></button>
+  </div>
+  <nav id="navPokeGen" class="nav_pokeGen">
+    <ul>
+      <li id="1PokeGen">1.gen</li>
+      <li id="2PokeGen">2.gen</li>
+      <li id="3PokeGen">3.gen</li>
+      <li id="4PokeGen">4.gen</li>
+      <li id="5PokeGen">5.gen</li>
+      <li id="6PokeGen">6.gen</li>
+      <li id="7PokeGen">7.gen</li>
+      <li id="8PokeGen">8.gen</li>
+      <li id="9PokeGen">9.gen</li>
+    </ul>
+  </nav>
+</header>
+
+<style lang="scss">
+  header {
+    background-color: var(--card-color4);
+  }
+  .bannerContainer {
+    width: fit-content;
+    margin: auto;
+    padding: 1em;
+  }
+  .banner-title {
+    font-size: 1.25rem;
+    margin: 0;
+    color: var(--text-color);
+  }
+  .banner-logo {
+    background: var(--banner-logo) no-repeat;
+    background-size: contain;
+    height: 5em;
+    width: 15em;
+    margin-left: 1em;
+  }
+
+  /* - NAV GENERATIONS - */
+  .nav_pokeGen {
+    margin: 0 auto;
+    width: fit-content;
+    padding-bottom: 1em;
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5em;
+
+      li {
+        padding: 1em;
+        width: 6em;
+        text-align: center;
+        cursor: pointer;
+        background-color: var(--box-color);
+      }
+    }
+  }
+</style>
