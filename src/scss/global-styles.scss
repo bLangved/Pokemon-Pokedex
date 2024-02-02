@@ -2,10 +2,6 @@
   box-sizing: border-box;
 }
 
-a {
-  text-decoration: none;
-}
-
 ul {
   padding: 0;
 }
@@ -31,10 +27,6 @@ p {
   line-height: 1.6;
 }
 
-html {
-  color-scheme: light dark;
-}
-
 body {
   font-family:
     system-ui,
@@ -54,7 +46,7 @@ body {
 }
 
 main {
-  color: var(--text-color);
+  margin-top: 96px; // substituting for fixed header height
 }
 
 footer {

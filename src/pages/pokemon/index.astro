@@ -1,6 +1,7 @@
 ---
-import SiteHeader from '../../components/SiteHeader.astro';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '/src/css/style.css';
+import SiteHeader from '../../components/SiteHeader.astro';
 ---
 
 <!doctype html>
@@ -16,7 +17,6 @@ import '/src/css/style.css';
 
   <body id="selectedPokemon">
     <SiteHeader />
-
     <main>
       <h1 class="title_selectedPokemon">Selected Pokemon</h1>
       <div class="pokemonId_selectedPokemon"></div>
@@ -35,7 +35,6 @@ import '/src/css/style.css';
       </div>
     </main>
 
-    <script src="../../js/components/themeToggle.js"></script>
     <script src="../../js/components/activeSite.js"></script>
     <script src="../../js/components/displayError.js"></script>
     <script src="../../js/fetchData/fetch-selectedpokemon.js"></script>

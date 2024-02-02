@@ -1,7 +1,13 @@
 <header>
   <nav class="navbar navbar-dark bg-dark fixed-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">Pokedex4life</a>
+    <div class="container-fluid d-flex align-items-center">
+      <a class="navbar-brand" href="/"
+        ><img
+          src="/public/logo/pokèdex4life_v1.png"
+          height="48"
+          width="172"
+        /></a
+      >
       <button
         class="navbar-toggler"
         type="button"
@@ -42,9 +48,6 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
@@ -55,16 +58,19 @@
               >
                 Pokemon generations
               </a>
-              <ul class="dropdown-menu dropdown-menu-dark" id="navPokeGen">
-                <li class="dropdown-item" id="1PokeGen">1.gen</li>
-                <li class="dropdown-item" id="2PokeGen">2.gen</li>
-                <li class="dropdown-item" id="3PokeGen">3.gen</li>
-                <li class="dropdown-item" id="4PokeGen">4.gen</li>
-                <li class="dropdown-item" id="5PokeGen">5.gen</li>
-                <li class="dropdown-item" id="6PokeGen">6.gen</li>
-                <li class="dropdown-item" id="7PokeGen">7.gen</li>
-                <li class="dropdown-item" id="8PokeGen">8.gen</li>
-                <li class="dropdown-item" id="9PokeGen">9.gen</li>
+              <ul
+                class="dropdown-menu dropdown-menu-dark dropdown-generations"
+                id="navPokeGen"
+              >
+                <li class="dropdown-item py-2" id="1PokeGen">1.gen</li>
+                <li class="dropdown-item py-2" id="2PokeGen">2.gen</li>
+                <li class="dropdown-item py-2" id="3PokeGen">3.gen</li>
+                <li class="dropdown-item py-2" id="4PokeGen">4.gen</li>
+                <li class="dropdown-item py-2" id="5PokeGen">5.gen</li>
+                <li class="dropdown-item py-2" id="6PokeGen">6.gen</li>
+                <li class="dropdown-item py-2" id="7PokeGen">7.gen</li>
+                <li class="dropdown-item py-2" id="8PokeGen">8.gen</li>
+                <li class="dropdown-item py-2" id="9PokeGen">9.gen</li>
               </ul>
             </li>
           </ul>
@@ -79,6 +85,12 @@
 
   <style lang="scss">
     header {
+      // height: 96px;
+      nav {
+      }
+      .dropdown-generations {
+        cursor: pointer;
+      }
     }
   </style>
 
@@ -86,7 +98,7 @@
     // Used for hiding the navbar when generations are loaded in
     import { Offcanvas } from 'bootstrap';
     document.addEventListener('DOMContentLoaded', function () {
-      const offcanvasElement = document.getElementById('offcanvasDarkNavbar');
+      const offcanvasElement = document.querySelector('#offcanvasDarkNavbar');
       const bsOffcanvas = new Offcanvas(offcanvasElement);
       const dropdownItems = document.querySelectorAll(
         '#navPokeGen .dropdown-item',
@@ -97,5 +109,49 @@
         });
       });
     });
+  </script>
+
+  <script>
+    function updateTheme() {
+      const prefersDark = window.matchMedia(
+        '(prefers-color-scheme: dark)',
+      ).matches;
+      const navbar = document.querySelector('.navbar');
+      const offcanvas = document.querySelector('.offcanvas');
+      const btnClose = document.querySelector('.offcanvas .btn-close');
+      const apiLink = document.querySelector('.offcanvas-end .link-light');
+
+      if (prefersDark) {
+        navbar.classList.remove('navbar-dark', 'bg-dark');
+        navbar.classList.add('navbar-light', 'bg-light');
+        offcanvas.classList.remove('text-bg-dark');
+        offcanvas.classList.add('text-bg-light');
+        btnClose.classList.remove('btn-close-white');
+        btnClose.classList.add('btn-close-dark');
+        apiLink.classList.remove('link-light');
+        apiLink.classList.add('link-dark');
+      } else {
+        navbar.classList.remove('navbar-light', 'bg-light');
+        navbar.classList.add('navbar-dark', 'bg-dark');
+        offcanvas.classList.remove('text-bg-light');
+        offcanvas.classList.add('text-bg-dark');
+        btnClose.classList.remove('btn-close-dark');
+        btnClose.classList.add('btn-close-white');
+        apiLink.classList.remove('link-dark');
+        apiLink.classList.add('link-light');
+      }
+    }
+
+    updateTheme();
+
+    const darkModeMediaQuery = window.matchMedia(
+      '(prefers-color-scheme: dark)',
+    );
+    const lightModeMediaQuery = window.matchMedia(
+      '(prefers-color-scheme: light)',
+    );
+
+    darkModeMediaQuery.addEventListener('change', updateTheme);
+    lightModeMediaQuery.addEventListener('change', updateTheme);
   </script>
 </header>
