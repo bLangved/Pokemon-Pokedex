@@ -77,7 +77,7 @@
         </div>
         <div class="offcanvas-end mt-auto ps-3 mb-4">
           <div>The data on this site is retrieved by using the pokéAPI</div>
-          <a href="https://pokeapi.co/" class="link-light">Check it out here</a>
+          <a href="https://pokeapi.co/" class="link">Check it out here</a>
         </div>
       </div>
     </div>
@@ -119,8 +119,10 @@
       const navbar = document.querySelector('.navbar');
       const offcanvas = document.querySelector('.offcanvas');
       const btnClose = document.querySelector('.offcanvas .btn-close');
-      const apiLink = document.querySelector('.offcanvas-end .link-light');
+      const apiLink = document.querySelector('.offcanvas-end .link');
 
+      btnClose.classList.remove('btn-close-white', 'btn-close-dark');
+      apiLink.classList.remove('link-dark', 'link-light');
       if (prefersDark) {
         navbar.classList.remove('navbar-dark', 'bg-dark');
         navbar.classList.add('navbar-light', 'bg-light');
@@ -128,16 +130,13 @@
         offcanvas.classList.add('text-bg-light');
         btnClose.classList.remove('btn-close-white');
         btnClose.classList.add('btn-close-dark');
-        apiLink.classList.remove('link-light');
         apiLink.classList.add('link-dark');
       } else {
         navbar.classList.remove('navbar-light', 'bg-light');
         navbar.classList.add('navbar-dark', 'bg-dark');
         offcanvas.classList.remove('text-bg-light');
         offcanvas.classList.add('text-bg-dark');
-        btnClose.classList.remove('btn-close-dark');
         btnClose.classList.add('btn-close-white');
-        apiLink.classList.remove('link-dark');
         apiLink.classList.add('link-light');
       }
     }
