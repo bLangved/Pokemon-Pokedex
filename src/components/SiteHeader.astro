@@ -1,70 +1,180 @@
 <header>
-  <div class="bannerContainer">
-    <a href="/">
-      <h1 class="banner-title">Langveds</h1>
-      <div class="banner-logo"></div>
-    </a>
-  </div>
-  <div class="themeToggle-container">
-    <span class="theme-text">Light theme</span>
-    <button class="toggle-theme"></button>
-  </div>
-  <nav id="navPokeGen" class="nav_pokeGen">
-    <ul>
-      <li id="1PokeGen">1.gen</li>
-      <li id="2PokeGen">2.gen</li>
-      <li id="3PokeGen">3.gen</li>
-      <li id="4PokeGen">4.gen</li>
-      <li id="5PokeGen">5.gen</li>
-      <li id="6PokeGen">6.gen</li>
-      <li id="7PokeGen">7.gen</li>
-      <li id="8PokeGen">8.gen</li>
-      <li id="9PokeGen">9.gen</li>
-    </ul>
+  <nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container-fluid align-items-center">
+      <a class="navbar-brand" href="/"
+        ><img src="/logo/pokèdex4life_v1.png" height="48" width="172" /></a
+      >
+      <form class="d-none d-lg-flex" role="search">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Search for Pokémon"
+          aria-label="Search"
+        />
+        <button class="btn btn-success" type="submit">Search</button>
+      </form>
+      <ul class="d-none d-lg-flex navbar-nav justify-content-end me-2">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Pokemon generations
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-dark p-0 position-absolute shadow-lg dropdown-generations"
+            id="navPokeGen"
+          >
+            <div class="row text-center">
+              <div class="col-6">
+                <li class="dropdown-item py-2" id="1PokeGen">1.gen</li>
+              </div>
+              <div class="col-6">
+                <li class="dropdown-item py-2" id="2PokeGen">2.gen</li>
+              </div>
+              <div class="col-6">
+                <li class="dropdown-item py-2" id="3PokeGen">3.gen</li>
+              </div>
+              <div class="col-6">
+                <li class="dropdown-item py-2" id="4PokeGen">4.gen</li>
+              </div>
+              <div class="col-6">
+                <li class="dropdown-item py-2" id="5PokeGen">5.gen</li>
+              </div>
+              <div class="col-6">
+                <li class="dropdown-item py-2" id="6PokeGen">6.gen</li>
+              </div>
+              <div class="col-6">
+                <li class="dropdown-item py-2" id="7PokeGen">7.gen</li>
+              </div>
+              <div class="col-6">
+                <li class="dropdown-item py-2" id="8PokeGen">8.gen</li>
+              </div>
+              <div class="col-12">
+                <li class="dropdown-item py-2" id="9PokeGen">9.gen</li>
+              </div>
+            </div>
+          </ul>
+        </li>
+      </ul>
+      <button
+        class="d-lg-none navbar-toggler"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasDarkNavbar"
+        aria-controls="offcanvasDarkNavbar"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="offcanvas offcanvas-end text-bg-dark"
+        tabindex="-1"
+        id="offcanvasDarkNavbar"
+        aria-labelledby="offcanvasDarkNavbarLabel"
+      >
+        <div class="offcanvas-header offcanvas-header-custom">
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
+            Gotta catch em all!
+          </h5>
+          <button
+            type="button"
+            class="btn-close btn-close-white me-2"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <form class="d-flex mb-3" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search for Pokémon"
+              aria-label="Search"
+            />
+            <button class="btn btn-success" type="submit">Search</button>
+          </form>
+          <ul class="navbar-nav justify-content-end flex-grow-1">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Pokemon generations
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-dark p-0 dropdown-generations"
+                id="navPokeGen"
+              >
+                <li class="dropdown-item py-2" id="1PokeGen">1.gen</li>
+                <li class="dropdown-item py-2" id="2PokeGen">2.gen</li>
+                <li class="dropdown-item py-2" id="3PokeGen">3.gen</li>
+                <li class="dropdown-item py-2" id="4PokeGen">4.gen</li>
+                <li class="dropdown-item py-2" id="5PokeGen">5.gen</li>
+                <li class="dropdown-item py-2" id="6PokeGen">6.gen</li>
+                <li class="dropdown-item py-2" id="7PokeGen">7.gen</li>
+                <li class="dropdown-item py-2" id="8PokeGen">8.gen</li>
+                <li class="dropdown-item py-2" id="9PokeGen">9.gen</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="offcanvas-end mt-auto ps-3 mb-4">
+          <span>The data on this site is retrieved by using the pokéAPI.</span>
+          <a href="https://pokeapi.co/" class="link link-underline-secondary"
+            >Check it out here</a
+          >
+        </div>
+      </div>
+    </div>
   </nav>
 </header>
 
 <style lang="scss">
   header {
-    background-color: var(--card-color4);
-  }
-  .bannerContainer {
-    width: fit-content;
-    margin: auto;
-    padding: 1em;
-  }
-  .banner-title {
-    font-size: 1.25rem;
-    margin: 0;
-    color: var(--text-color);
-  }
-  .banner-logo {
-    background: var(--banner-logo) no-repeat;
-    background-size: contain;
-    height: 5em;
-    width: 15em;
-    margin-left: 1em;
-  }
-
-  /* - NAV GENERATIONS - */
-  .nav_pokeGen {
-    margin: 0 auto;
-    width: fit-content;
-    padding-bottom: 1em;
-
-    ul {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.5em;
-
-      li {
-        padding: 1em;
-        width: 6em;
-        text-align: center;
+    nav {
+      & div:first-child {
+        max-width: 1200px;
+      }
+      .navbar-toggler {
+        span {
+          transform: scale(1.25);
+        }
+      }
+      .offcanvas-header-custom {
+        height: 74px;
+        button {
+          transform: scale(1.25);
+        }
+      }
+      .dropdown-generations {
         cursor: pointer;
-        background-color: var(--box-color);
       }
     }
   }
 </style>
+
+<script>
+  // Used for hiding the navbar when generations are loaded in
+  import { Offcanvas } from 'bootstrap';
+  document.addEventListener('DOMContentLoaded', function () {
+    const offcanvasElement = document.querySelector('#offcanvasDarkNavbar');
+    const bsOffcanvas = new Offcanvas(offcanvasElement);
+    const dropdownItems = document.querySelectorAll(
+      '#navPokeGen .dropdown-item',
+    );
+    dropdownItems.forEach((item) => {
+      item.addEventListener('click', () => {
+        bsOffcanvas.hide();
+      });
+    });
+  });
+</script>

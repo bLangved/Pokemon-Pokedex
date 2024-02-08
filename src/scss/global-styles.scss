@@ -2,11 +2,6 @@
   box-sizing: border-box;
 }
 
-a {
-  color: black;
-  text-decoration: none;
-}
-
 ul {
   padding: 0;
 }
@@ -23,17 +18,15 @@ video {
 }
 
 button {
-  border: none;
-  cursor: pointer;
+  border: none !important; // removes bootstrap borders on buttons
+  &:focus {
+    box-shadow: none !important; // removes bootstrap "focus-glow" when clicking buttons
+  }
 }
 
 p {
   font-size: 1rem;
   line-height: 1.6;
-}
-
-html {
-  color-scheme: light dark;
 }
 
 body {
@@ -51,12 +44,23 @@ body {
     sans-serif;
   margin: 0;
   padding: 0;
+  height: 100vh;
   background-color: var(--background-color);
+  display: grid;
+  grid-template-areas:
+    'banner'
+    'main'
+    'footer';
+}
+header {
+  grid-area: banner;
 }
 
 main {
-  color: var(--text-color);
+  grid-area: main;
+  margin: 96px 0 0 0; // substituting for fixed header height
 }
 
 footer {
+  grid-area: footer;
 }
