@@ -20,6 +20,11 @@ async function fetchSelectedPokemon() {
     const results1 = await response1.json();
     const pokemon = results1;
 
+    // Set the title of the page to the name of the Pokemon with the first letter capitalized
+    const pokemonName =
+      pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+    window.document.title = `Pokedex | ${pokemonName}`;
+
     // Fetch the Pokemon species data to get the evolution chain URL
     const speciesResponse = await fetch(pokemon.species.url);
     const speciesData = await speciesResponse.json();
