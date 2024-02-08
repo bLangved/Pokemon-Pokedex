@@ -30,6 +30,10 @@ async function fetchAllPokemon(gen) {
   showLoadingAnimation();
   clearPokeDisplay();
   pokeGenTitle.innerText = `${gen}. Generation`;
+
+  // Sets the title of the page to the selected generation
+  window.document.title = `Pokedex | ${gen}. Generation`;
+
   try {
     const genRanges = {
       1: [1, 151],
