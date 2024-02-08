@@ -67,74 +67,73 @@
   flex-direction: column;
   gap: 1em;
   padding: 0.5em;
-}
 
-.pokeCard {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 5em;
-  border-radius: 0.5em;
-  gap: 1em;
-  background-color: var(--card-color4);
+  a {
+    text-decoration: none;
 
-  span {
-    color: black;
+    .pokeCard {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 5em;
+      border-radius: 0.5em;
+      gap: 1em;
+      background-color: var(--card-color4);
+
+      .pokeCard-background {
+        position: absolute;
+        z-index: 0;
+        background: url(/src/images/pokeball-background.png) no-repeat;
+        background-size: contain;
+        margin-left: 0.5em;
+        width: 4em;
+        height: 4em;
+        opacity: 0.2;
+      }
+      .pokeCard-image {
+        position: relative;
+        z-index: 1;
+        width: 4em;
+        height: 4em;
+        margin: auto 0 auto 0.5em;
+      }
+      .pokeCard-text {
+        display: flex;
+        flex-direction: column;
+        span {
+          color: black;
+        }
+        .pokeCard-id {
+          font-size: 0.875rem;
+        }
+
+        .pokeCard-name {
+          font-size: 1rem;
+          text-transform: uppercase;
+        }
+      }
+    }
+    &:hover {
+      border-radius: 0.5em;
+      box-shadow: 0px 0px 3px rgb(30, 30, 30);
+      transition: box-shadow 0.1s ease-in-out;
+    }
   }
 }
-
-.pokeCard:hover {
-  box-shadow: 0px 0px 0.5em black;
-  transition: box-shadow 0.15s ease-in-out;
-}
-
-.pokeCard-background {
-  position: absolute;
-  z-index: 0;
-  background: url(/src/images/pokeball-background.png) no-repeat;
-  background-size: contain;
-  margin-left: 0.5em;
-  width: 4em;
-  height: 4em;
-  opacity: 0.2;
-}
-
-.pokeCard-image {
-  position: relative;
-  z-index: 1;
-  width: 4em;
-  height: 4em;
-  margin: auto 0 auto 0.5em;
-}
-
-.pokeCard-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.pokeCard-id {
-  font-size: 0.875rem;
-}
-
-.pokeCard-name {
-  font-size: 1rem;
-  text-transform: uppercase;
-}
-
 @media screen and (min-width: 375px) {
   .pokeCard-text {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-  }
-  .pokeCard-id {
-    font-size: 0.875rem;
-  }
-  .pokeCard-name {
-    margin-right: 5%;
-    font-size: 1rem;
-    text-transform: uppercase;
+    .pokeCard-id {
+      font-size: 0.875rem;
+    }
+    .pokeCard-name {
+      margin-right: 5%;
+      font-size: 1rem;
+      text-transform: uppercase;
+    }
   }
 }
 
@@ -143,11 +142,12 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.5em;
-  }
-  .pokeCard {
-    display: flex;
-    width: 100%;
-    height: 6em;
+
+    .pokeCard {
+      display: flex;
+      width: 100%;
+      height: 6em;
+    }
   }
 }
 
@@ -158,56 +158,44 @@
     justify-content: center;
     gap: 1em;
     padding: 0;
-  }
-  .pokeCard {
-    flex-direction: column;
-    text-align: center;
-    width: 14em;
-    height: 14em;
-  }
 
-  .pokeCard-background {
-    margin-left: 0;
-    margin-top: 0.5em;
-    width: 7.5em;
-    height: 7.5em;
-  }
+    a {
+      .pokeCard {
+        flex-direction: column;
+        text-align: center;
+        width: 14em;
+        height: 14em;
 
-  .pokeCard-image {
-    width: 7.5em;
-    height: 7.5em;
-    margin: 0 auto;
-  }
-  .pokeCard-text {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-  }
+        .pokeCard-background {
+          margin-left: 0;
+          margin-top: 0.5em;
+          width: 7.5em;
+          height: 7.5em;
+        }
 
-  .pokeCard-id {
-    font-size: 1rem;
-    margin: 0 auto;
+        .pokeCard-image {
+          width: 7.5em;
+          height: 7.5em;
+          margin: 0 auto;
+        }
+
+        .pokeCard-text {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5em;
+
+          .pokeCard-id {
+            font-size: 1rem;
+            margin: 0 auto;
+          }
+          .pokeCard-name {
+            font-size: 1.25rem;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
   }
-
-  .pokeCard-name {
-    font-size: 1.25rem;
-    margin: 0 auto;
-  }
-}
-
-.showMorePokemonContainer {
-  width: 100%;
-  padding: 1em 0.5em;
-}
-
-.showMorePokemon-btn {
-  width: 100%;
-  height: 4em;
-  margin: 0 auto;
-  border-radius: 0.5em;
-  text-transform: uppercase;
-  background-color: var(--text-color);
-  color: var(--text-color-reverse);
 }
 
 /* --- SELECTED POKEMON --- */

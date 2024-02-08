@@ -15,12 +15,14 @@ function clearPokeDisplay() {
   }
 }
 
-const pokeGenNav = document.querySelector('#navPokeGen');
-pokeGenNav.addEventListener('click', handleGenClick);
+const pokeGenNavs = document.querySelectorAll('#navPokeGen');
+pokeGenNavs.forEach((pokeGenNav) => {
+  pokeGenNav.addEventListener('click', handleGenClick);
+});
 
 async function handleGenClick(event) {
   const genItem = event.target.closest('li');
-  if (genItem && pokeGenNav.contains(genItem)) {
+  if (genItem) {
     const genNumber = genItem.id.replace('PokeGen', '');
     await fetchAllPokemon(genNumber);
   }

@@ -2,6 +2,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '/src/css/style.css';
 import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 ---
 
 <!doctype html>
@@ -33,7 +34,7 @@ import SiteHeader from '../components/SiteHeader.astro';
         <div class="pokeCardContainer"></div>
       </div>
     </main>
-
+    <SiteFooter />
     <script src="../js/index.js"></script>
     <script src="../js/components/activeSite.js"></script>
     <script src="../js/components/displayError.js"></script>

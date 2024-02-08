@@ -2,10 +2,6 @@
   box-sizing: border-box;
 }
 
-a {
-  text-decoration: none;
-}
-
 ul {
   padding: 0;
 }
@@ -37,11 +33,23 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin: 0;
   padding: 0;
+  height: 100vh;
   background-color: var(--background-color);
+  display: grid;
+  grid-template-areas: "banner" "main" "footer";
+}
+
+header {
+  grid-area: banner;
 }
 
 main {
-  margin-top: 96px;
+  grid-area: main;
+  margin: 96px 0 0 0;
+}
+
+footer {
+  grid-area: footer;
 }
 
 :root {
@@ -58,6 +66,7 @@ main {
 @media (prefers-color-scheme: dark) {
   :root {
     --background-color: rgb(35, 35, 35);
+    --background-color-reverse: rgb(248, 248, 248);
     --text-color: rgb(248, 248, 248);
     --text-color-reverse: rgb(35, 35, 35);
     --box-color: rgb(50, 50, 50);
@@ -66,6 +75,7 @@ main {
 @media (prefers-color-scheme: light) {
   :root {
     --background-color: rgb(248, 248, 248);
+    --background-color-reverse: rgb(35, 35, 35);
     --text-color: rgb(35, 35, 35);
     --text-color-reverse: rgb(248, 248, 248);
     --box-color: rgb(230, 230, 230);
@@ -140,8 +150,10 @@ html {
   gap: 1em;
   padding: 0.5em;
 }
-
-.pokeCard {
+.pokeCardContainer a {
+  text-decoration: none;
+}
+.pokeCardContainer a .pokeCard {
   display: flex;
   align-items: center;
   width: 100%;
@@ -150,16 +162,7 @@ html {
   gap: 1em;
   background-color: var(--card-color4);
 }
-.pokeCard span {
-  color: black;
-}
-
-.pokeCard:hover {
-  box-shadow: 0px 0px 0.5em black;
-  transition: box-shadow 0.15s ease-in-out;
-}
-
-.pokeCard-background {
+.pokeCardContainer a .pokeCard .pokeCard-background {
   position: absolute;
   z-index: 0;
   background: url(/src/images/pokeball-background.png) no-repeat;
@@ -169,27 +172,31 @@ html {
   height: 4em;
   opacity: 0.2;
 }
-
-.pokeCard-image {
+.pokeCardContainer a .pokeCard .pokeCard-image {
   position: relative;
   z-index: 1;
   width: 4em;
   height: 4em;
   margin: auto 0 auto 0.5em;
 }
-
-.pokeCard-text {
+.pokeCardContainer a .pokeCard .pokeCard-text {
   display: flex;
   flex-direction: column;
 }
-
-.pokeCard-id {
+.pokeCardContainer a .pokeCard .pokeCard-text span {
+  color: black;
+}
+.pokeCardContainer a .pokeCard .pokeCard-text .pokeCard-id {
   font-size: 0.875rem;
 }
-
-.pokeCard-name {
+.pokeCardContainer a .pokeCard .pokeCard-text .pokeCard-name {
   font-size: 1rem;
   text-transform: uppercase;
+}
+.pokeCardContainer a:hover {
+  border-radius: 0.5em;
+  box-shadow: 0px 0px 3px rgb(30, 30, 30);
+  transition: box-shadow 0.1s ease-in-out;
 }
 
 @media screen and (min-width: 375px) {
@@ -199,10 +206,10 @@ html {
     justify-content: space-between;
     width: 100%;
   }
-  .pokeCard-id {
+  .pokeCard-text .pokeCard-id {
     font-size: 0.875rem;
   }
-  .pokeCard-name {
+  .pokeCard-text .pokeCard-name {
     margin-right: 5%;
     font-size: 1rem;
     text-transform: uppercase;
@@ -214,7 +221,7 @@ html {
     grid-template-columns: 1fr 1fr;
     gap: 0.5em;
   }
-  .pokeCard {
+  .pokeCardContainer .pokeCard {
     display: flex;
     width: 100%;
     height: 6em;
@@ -228,52 +235,37 @@ html {
     gap: 1em;
     padding: 0;
   }
-  .pokeCard {
+  .pokeCardContainer a .pokeCard {
     flex-direction: column;
     text-align: center;
     width: 14em;
     height: 14em;
   }
-  .pokeCard-background {
+  .pokeCardContainer a .pokeCard .pokeCard-background {
     margin-left: 0;
     margin-top: 0.5em;
     width: 7.5em;
     height: 7.5em;
   }
-  .pokeCard-image {
+  .pokeCardContainer a .pokeCard .pokeCard-image {
     width: 7.5em;
     height: 7.5em;
     margin: 0 auto;
   }
-  .pokeCard-text {
+  .pokeCardContainer a .pokeCard .pokeCard-text {
     display: flex;
     flex-direction: column;
     gap: 0.5em;
   }
-  .pokeCard-id {
+  .pokeCardContainer a .pokeCard .pokeCard-text .pokeCard-id {
     font-size: 1rem;
     margin: 0 auto;
   }
-  .pokeCard-name {
+  .pokeCardContainer a .pokeCard .pokeCard-text .pokeCard-name {
     font-size: 1.25rem;
     margin: 0 auto;
   }
 }
-.showMorePokemonContainer {
-  width: 100%;
-  padding: 1em 0.5em;
-}
-
-.showMorePokemon-btn {
-  width: 100%;
-  height: 4em;
-  margin: 0 auto;
-  border-radius: 0.5em;
-  text-transform: uppercase;
-  background-color: var(--text-color);
-  color: var(--text-color-reverse);
-}
-
 /* --- SELECTED POKEMON --- */
 .pokemonContainer {
   background-color: var(--background-color);
