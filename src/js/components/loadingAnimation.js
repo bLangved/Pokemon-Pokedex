@@ -6,5 +6,5 @@ export function showLoadingAnimation() {
 }
 // Function to hide the loading animation
 export function hideLoadingAnimation() {
-  // loading.style.display = 'none';
+  loading.style.display = 'none';
 }
