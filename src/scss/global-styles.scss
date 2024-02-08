@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 ul {
   padding: 0;
 }
@@ -18,8 +22,10 @@ video {
 }
 
 button {
-  border: none;
-  cursor: pointer;
+  border: none !important; // removes bootstrap borders on buttons
+  &:focus {
+    box-shadow: none !important; // removes bootstrap "focus-glow" when clicking buttons
+  }
 }
 
 p {
@@ -47,7 +53,4 @@ body {
 
 main {
   margin-top: 96px; // substituting for fixed header height
-}
-
-footer {
 }

@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 ul {
   padding: 0;
 }
@@ -18,8 +22,10 @@ video {
 }
 
 button {
-  border: none;
-  cursor: pointer;
+  border: none !important;
+}
+button:focus {
+  box-shadow: none !important;
 }
 
 p {

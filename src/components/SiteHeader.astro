@@ -24,13 +24,13 @@
         id="offcanvasDarkNavbar"
         aria-labelledby="offcanvasDarkNavbarLabel"
       >
-        <div class="offcanvas-header">
+        <div class="offcanvas-header offcanvas-header-custom">
           <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
             Gotta catch em all!
           </h5>
           <button
             type="button"
-            class="btn-close btn-close-white"
+            class="btn-close btn-close-white me-2"
             data-bs-dismiss="offcanvas"
             aria-label="Close"></button>
         </div>
@@ -85,8 +85,16 @@
 
   <style lang="scss">
     header {
-      // height: 96px;
-      nav {
+      .navbar-toggler {
+        span {
+          transform: scale(1.25);
+        }
+      }
+      .offcanvas-header-custom {
+        height: 74px;
+        button {
+          transform: scale(1.25);
+        }
       }
       .dropdown-generations {
         cursor: pointer;
@@ -109,48 +117,5 @@
         });
       });
     });
-  </script>
-
-  <script>
-    function updateTheme() {
-      const prefersDark = window.matchMedia(
-        '(prefers-color-scheme: dark)',
-      ).matches;
-      const navbar = document.querySelector('.navbar');
-      const offcanvas = document.querySelector('.offcanvas');
-      const btnClose = document.querySelector('.offcanvas .btn-close');
-      const apiLink = document.querySelector('.offcanvas-end .link');
-
-      btnClose.classList.remove('btn-close-white', 'btn-close-dark');
-      apiLink.classList.remove('link-dark', 'link-light');
-      if (prefersDark) {
-        navbar.classList.remove('navbar-dark', 'bg-dark');
-        navbar.classList.add('navbar-light', 'bg-light');
-        offcanvas.classList.remove('text-bg-dark');
-        offcanvas.classList.add('text-bg-light');
-        btnClose.classList.remove('btn-close-white');
-        btnClose.classList.add('btn-close-dark');
-        apiLink.classList.add('link-dark');
-      } else {
-        navbar.classList.remove('navbar-light', 'bg-light');
-        navbar.classList.add('navbar-dark', 'bg-dark');
-        offcanvas.classList.remove('text-bg-light');
-        offcanvas.classList.add('text-bg-dark');
-        btnClose.classList.add('btn-close-white');
-        apiLink.classList.add('link-light');
-      }
-    }
-
-    updateTheme();
-
-    const darkModeMediaQuery = window.matchMedia(
-      '(prefers-color-scheme: dark)',
-    );
-    const lightModeMediaQuery = window.matchMedia(
-      '(prefers-color-scheme: light)',
-    );
-
-    darkModeMediaQuery.addEventListener('change', updateTheme);
-    lightModeMediaQuery.addEventListener('change', updateTheme);
   </script>
 </header>
