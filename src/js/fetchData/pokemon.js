@@ -4,8 +4,8 @@ import {
 } from '../components/loadingAnimation.js';
 import { createSelectedPokemon } from '../selectedPokemon.js';
 
-const errorMessageContainer = document.querySelector('.errorMessageContainer');
-const errorMessage = document.querySelector('.errorMessage');
+const errorMessageContainer = document.querySelector('#errorMessageContainer');
+const errorMessage = document.querySelector('#errorMessage');
 
 // This API-call is for showing info on the Pokemon being selected on index.html, and opens up that Pokemon on details.html.
 const queryString = document.location.search;
@@ -23,7 +23,7 @@ async function fetchSelectedPokemon() {
     // Set the title of the page to the name of the Pokemon with the first letter capitalized
     const pokemonName =
       pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
-    window.document.title = `Pokedex | ${pokemonName}`;
+    window.document.title = `Pokédex | ${pokemonName}`;
 
     // Fetch the Pokemon species data to get the evolution chain URL
     const speciesResponse = await fetch(pokemon.species.url);
@@ -41,7 +41,6 @@ async function fetchSelectedPokemon() {
   } catch (error) {
     hideLoadingAnimation();
     errorMessageContainer.style.display = 'block';
-    console.log(error);
     errorMessage.innerText = error;
   }
 }

@@ -1,43 +1,33 @@
 ---
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '/src/css/style.css';
+import SiteHead from '../../components/SiteHead.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
+import Loading from '../../components/Loading.astro';
+import ErrorMessage from '../../components/ErrorMessage.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 ---
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
-  </head>
+  <SiteHead title="Pokémon" description="Check out this selected Pokémon" />
 
   <body id="selectedPokemon">
     <SiteHeader />
     <main>
-      <h1 class="title_selectedPokemon">Selected Pokemon</h1>
-      <div class="pokemonId_selectedPokemon"></div>
+      <Loading />
+      <ErrorMessage />
+      <div class="content">
+        <h1 id="pokemonHeader"></h1>
+        <span id="pokemonId"></span>
 
-      <div class="contentContainer contentContainer_selectedPokemon">
-        <div class="loadingContainer">
-          <p class="loadingText">Loading Pokemon...</p>
-          <div id="loadingAnimation"></div>
-        </div>
-
-        <div class="errorMessageContainer">
-          <div class="errorMessage"></div>
-        </div>
-
-        <div class="pokemonContainer"></div>
+        <div class="pokemon-container" id="pokemonContainer"></div>
       </div>
     </main>
     <SiteFooter />
     <script src="../../js/index.js"></script>
     <script src="../../js/components/activeSite.js"></script>
     <script src="../../js/components/displayError.js"></script>
-    <script src="../../js/fetchData/fetch-selectedpokemon.js"></script>
+    <script src="../../js/fetchData/pokemon.js"></script>
   </body>
 </html>
