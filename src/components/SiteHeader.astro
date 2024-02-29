@@ -163,6 +163,8 @@
 </style>
 
 <script>
+  import { fetchGeneration } from '../js/fetchData/generation.js';
+
   // Used for hiding the navbar when generations are loaded in
   import { Offcanvas } from 'bootstrap';
   document.addEventListener('DOMContentLoaded', function () {
@@ -177,4 +179,22 @@
       });
     });
   });
+
+  const genNavs = document.querySelectorAll('#navPokeGen');
+  genNavs.forEach((genNav) => {
+    genNav.addEventListener('click', handleGenClick);
+  });
+
+  async function handleGenClick(event) {
+    const genItem = event.target.closest('li');
+    if (genItem) {
+      const genNumber = genItem.id.replace('PokeGen', '');
+      if (document.body.id !== 'generation') {
+        sessionStorage.setItem('pendingGenNumber', genNumber);
+        window.location.href = '/';
+      } else {
+        await fetchGeneration(genNumber);
+      }
+    }
+  }
 </script>

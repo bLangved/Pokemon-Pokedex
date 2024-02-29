@@ -1,43 +1,38 @@
 ---
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '/src/css/style.css';
+import SiteHead from '../components/SiteHead.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+import Loading from '../components/Loading.astro';
+import ErrorMessage from '../components/ErrorMessage.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 ---
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <title>Pokedex</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
-  </head>
-
-  <body id="index">
+  <SiteHead
+    title="Home"
+    description="An online Pokédex for checking out all the Pokémons out there!"
+  />
+  <body id="generation">
     <SiteHeader />
     <main>
-      <h2 id="pokeGenTitle" class="generation-title"></h2>
+      <Loading />
+      <ErrorMessage />
+      <div class="content">
+        <h1 id="generationHeader"></h1>
 
-      <div class="contentContainer">
-        <div class="loadingContainer">
-          <p class="loadingText">Loading Pokemons...</p>
-          <div id="loadingAnimation"></div>
-        </div>
-
-        <div class="errorMessageContainer">
-          <div class="errorMessage"></div>
-        </div>
-
-        <div class="pokeCardContainer"></div>
+        <div class="card-container" id="cardContainer"></div>
+        <button
+          type="button"
+          class="load-more-pokémon-btn btn"
+          id="loadMorePokeBtn">More Pokémons</button
+        >
       </div>
     </main>
     <SiteFooter />
     <script src="../js/index.js"></script>
     <script src="../js/components/activeSite.js"></script>
-    <script src="../js/components/displayError.js"></script>
-    <script src="../js/fetchData/fetch-pokemonGeneration.js"></script>
+    <script src="../js/fetchData/generationStorage.js"></script>
   </body>
 </html>

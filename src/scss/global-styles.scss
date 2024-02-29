@@ -24,6 +24,13 @@ button {
   }
 }
 
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 1em;
+  font-weight: 900;
+}
+
 p {
   font-size: 1rem;
   line-height: 1.6;
@@ -58,7 +65,7 @@ header {
 
 main {
   grid-area: main;
-  margin: 96px 0 0 0; // substituting for fixed header height
+  margin: 74px 1em 0 1em;
 }
 
 footer {

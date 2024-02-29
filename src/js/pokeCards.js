@@ -1,4 +1,4 @@
-const pokeCardContainer = document.querySelector('.pokeCardContainer');
+const cardContainer = document.querySelector('#cardContainer');
 
 function createPokeCards(pokemon) {
   const pokeCard = document.createElement('div');
@@ -36,7 +36,7 @@ function createPokeCards(pokemon) {
 
   pokemonLink.append(pokeCard);
 
-  pokeCardContainer.append(pokemonLink);
+  cardContainer.append(pokemonLink);
 }
 
 export function iteratePokemons(pokemons) {

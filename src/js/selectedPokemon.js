@@ -7,9 +7,9 @@ import {
   findNextPokemonInChain,
 } from './utils/evolutionPattern.js';
 
-const pokemonContainer = document.querySelector('.pokemonContainer');
-const title = document.querySelector('.title_selectedPokemon');
-const pokemonId = document.querySelector('.pokemonId_selectedPokemon');
+const pokemonContainer = document.querySelector('#pokemonContainer');
+const title = document.querySelector('#pokemonHeader');
+const pokemonId = document.querySelector('#pokemonId');
 
 const urlId = new URLSearchParams(window.location.search).get('id');
 

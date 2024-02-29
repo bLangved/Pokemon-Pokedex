@@ -1,0 +1,19 @@
+---
+interface HeadProps {
+  description?: string;
+  title: string;
+}
+
+const { description = 'Default description', title = '' } =
+  Astro.props as HeadProps;
+---
+
+<head>
+  <title>Pokédex | {title}</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="Description" content={description} />
+  <meta name="generator" content={Astro.generator} />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+</head>

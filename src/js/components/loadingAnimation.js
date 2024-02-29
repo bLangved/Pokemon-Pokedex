@@ -1,4 +1,4 @@
-const loading = document.querySelector('.loadingContainer');
+const loading = document.querySelector('#loadingContainer');
 
 // Function to show the loading animation
 export function showLoadingAnimation() {
