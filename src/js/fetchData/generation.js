@@ -31,7 +31,6 @@ export async function fetchGeneration(gen) {
   window.document.title = `Pokédex | ${gen}. Generation`;
   currentGen = gen;
   hasMorePokemons = true;
-
   try {
     const [start, end] = genRanges[gen] || [];
     if (start && end) {
@@ -41,14 +40,12 @@ export async function fetchGeneration(gen) {
       throw new Error('Invalid generation');
     }
     hideLoadingAnimation();
+    generationHeader.innerText = `${gen}. Generation`;
   } catch (error) {
     hideLoadingAnimation();
     showError(error);
   }
 
-  generationHeader.innerText = `${gen}. Generation`;
-
-  loadMorePokeBtn.style.display = 'block';
   loadMorePokeBtn.addEventListener('click', async () => {
     if (!hasMorePokemons) return;
 
