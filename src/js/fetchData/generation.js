@@ -1,12 +1,11 @@
 import { iteratePokemons } from '../pokeCards.js';
+import clearCardContainer from '../components/clearCardContainer.js';
+import showError from '../errorHandling/errorMessage.js';
 import {
   showLoadingAnimation,
   hideLoadingAnimation,
 } from '../components/loadingAnimation.js';
 
-const errorMessageContainer = document.querySelector('#errorMessageContainer');
-const errorMessage = document.querySelector('#errorMessage');
-const cardContainer = document.querySelector('#cardContainer');
 const generationHeader = document.querySelector('#generationHeader');
 const loadMorePokeBtn = document.querySelector('#loadMorePokeBtn');
 
@@ -26,29 +25,9 @@ const genRanges = {
   9: [906, 1010],
 };
 
-function clearPokeDisplay() {
-  while (cardContainer.firstChild) {
-    cardContainer.removeChild(cardContainer.firstChild);
-  }
-}
-
-const genNavs = document.querySelectorAll('#navPokeGen');
-genNavs.forEach((genNav) => {
-  genNav.addEventListener('click', handleGenClick);
-});
-
-async function handleGenClick(event) {
-  const genItem = event.target.closest('li');
-  if (genItem) {
-    const genNumber = genItem.id.replace('PokeGen', '');
-    await fetchAllPokemon(genNumber);
-  }
-}
-
-async function fetchAllPokemon(gen) {
+export async function fetchGeneration(gen) {
+  clearCardContainer();
   showLoadingAnimation();
-  clearPokeDisplay();
-  generationHeader.innerText = `${gen}. Generation`;
   window.document.title = `Pokédex | ${gen}. Generation`;
   currentGen = gen;
   hasMorePokemons = true;
@@ -57,30 +36,31 @@ async function fetchAllPokemon(gen) {
     const [start, end] = genRanges[gen] || [];
     if (start && end) {
       currentStartId = start;
-      await fetchPokemonInRange(start, Math.min(start + 29, end));
-      loadMorePokeBtn.style.display = 'block';
+      await fetchPokemonBatch(start, Math.min(start + 29, end));
     } else {
       throw new Error('Invalid generation');
     }
     hideLoadingAnimation();
   } catch (error) {
     hideLoadingAnimation();
-    errorMessageContainer.style.display = 'block';
-    errorMessage.innerText = error.message || error;
+    showError(error);
   }
+
+  generationHeader.innerText = `${gen}. Generation`;
+
+  loadMorePokeBtn.style.display = 'block';
+  loadMorePokeBtn.addEventListener('click', async () => {
+    if (!hasMorePokemons) return;
+
+    const [, genEnd] = genRanges[currentGen] || [];
+    await fetchPokemonBatch(
+      currentStartId,
+      Math.min(currentStartId + 29, genEnd),
+    );
+  });
 }
 
-loadMorePokeBtn.addEventListener('click', async () => {
-  if (!hasMorePokemons) return;
-
-  const [, genEnd] = genRanges[currentGen] || [];
-  await fetchPokemonInRange(
-    currentStartId,
-    Math.min(currentStartId + 29, genEnd),
-  );
-});
-
-async function fetchPokemonInRange(start, end) {
+async function fetchPokemonBatch(start, end) {
   showLoadingAnimation();
   const pokemonPromises = [];
 
@@ -94,7 +74,6 @@ async function fetchPokemonInRange(start, end) {
   iteratePokemons(pokemons);
   hideLoadingAnimation();
   currentStartId = end + 1;
-
   if (currentStartId > genRanges[currentGen][1]) {
     hasMorePokemons = false;
     loadMorePokeBtn.style.display = 'none';

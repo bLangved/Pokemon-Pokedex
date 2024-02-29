@@ -1,11 +1,9 @@
+import showError from '../errorHandling/errorMessage.js';
 import {
   showLoadingAnimation,
   hideLoadingAnimation,
 } from '../components/loadingAnimation.js';
 import { createSelectedPokemon } from '../selectedPokemon.js';
-
-const errorMessageContainer = document.querySelector('#errorMessageContainer');
-const errorMessage = document.querySelector('#errorMessage');
 
 // This API-call is for showing info on the Pokemon being selected on index.html, and opens up that Pokemon on details.html.
 const queryString = document.location.search;
@@ -40,8 +38,7 @@ async function fetchSelectedPokemon() {
     hideLoadingAnimation();
   } catch (error) {
     hideLoadingAnimation();
-    errorMessageContainer.style.display = 'block';
-    errorMessage.innerText = error;
+    showError(error);
   }
 }
 fetchSelectedPokemon();

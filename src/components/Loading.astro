@@ -1,16 +1,18 @@
 ---
-
+/* Can be implemented later: 
+If the loading time exceeds a hugh amount of time (like 5-7s), 
+the paragraph could display some info for the user that it takes time)
+*/
 ---
 
-<div class="loadingContainer">
-  <p class="loadingText">Loading Pokémons...</p>
+<div class="loading-container" id="loadingContainer">
+  <p id="loadingText"></p>
   <div id="loadingAnimation"></div>
 </div>
 
 <style lang="scss">
-  .loadingContainer {
+  .loading-container {
     display: none;
-    // display: flex !important;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -23,15 +25,14 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 100;
+
+    p {
+      display: none;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
   }
 
-  .loadingText {
-    display: none;
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-
-  /* --- Loading animation --- */
   #loadingAnimation {
     display: flex;
     position: relative;
@@ -74,7 +75,6 @@
     }
   }
 
-  /* Spin Animation */
   @keyframes spin {
     from {
       transform: rotate(0deg);
