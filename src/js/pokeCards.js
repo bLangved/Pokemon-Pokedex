@@ -1,51 +1,58 @@
+import {
+  getBackgroundColorForType,
+  updatePokeCardColor,
+} from './utils/pokeColors.js';
+
 const cardContainer = document.querySelector('#cardContainer');
 
 function createPokeCards(pokemon) {
-  const pokeCard = document.createElement('div');
+  const pokeCard = document.createElement('article');
   pokeCard.classList.add('pokeCard');
+  pokeCard.id = `pokemon${pokemon.id}`;
 
-  const pokeCardBackground = document.createElement('div');
-  pokeCardBackground.classList.add('pokeCard-background');
-  pokeCard.append(pokeCardBackground);
+  const typeColors = [];
+  pokemon.types.forEach((type) => {
+    const typeColor = getBackgroundColorForType(type.type.name);
+    typeColors.push(typeColor);
+  });
+  updatePokeCardColor(typeColors, pokeCard);
 
-  const pokeCardImg = document.createElement('img');
-  pokeCardImg.classList.add('pokeCard-image');
-  pokeCardImg.src = pokemon.sprites.front_default;
-  pokeCard.append(pokeCardImg);
+  const background = document.createElement('div');
+  background.classList.add('pokeCard-bg');
+  pokeCard.append(background);
+
+  const image = document.createElement('img');
+  image.classList.add('pokeCard-img');
+  image.src = pokemon.sprites.front_default;
+  pokeCard.append(image);
 
   const textContainer = document.createElement('div');
   textContainer.classList.add('pokeCard-text');
 
-  const pokeCardId = document.createElement('span');
-  pokeCardId.classList.add('pokeCard-id');
-  // This will ensure your id is always 3 characters long, filled with '0' from the start if it's less than 3 characters.
-  const idString = pokemon.id.toString().padStart(3, '0');
-  pokeCardId.innerText = '#' + idString;
-  textContainer.append(pokeCardId);
+  const id = document.createElement('span');
+  id.classList.add('pokeCard-id');
+  id.textContent = `#${pokemon.id.toString().padStart(3, '0')}`;
+  textContainer.append(id);
 
-  const pokeCardName = document.createElement('span');
-  pokeCardName.classList.add('pokeCard-name');
-  pokeCardName.innerText = pokemon.name;
-  textContainer.append(pokeCardName);
+  const name = document.createElement('span');
+  name.classList.add('pokeCard-name');
+  name.innerText = pokemon.name;
+  textContainer.append(name);
 
   pokeCard.append(textContainer);
 
-  // Create the card href, and move to selectedPokemon.html when clicked
-  const pokemonLink = document.createElement('a');
-  pokemonLink.href = `./pokemon?id=${pokemon.id}`;
+  const link = document.createElement('a');
+  link.href = `./pokemon?id=${pokemon.id}`;
+  link.setAttribute('aria-label', `View details about ${pokemon.name}`);
 
-  pokemonLink.append(pokeCard);
+  link.append(pokeCard);
 
-  cardContainer.append(pokemonLink);
+  cardContainer.append(link);
 }
 
 export function iteratePokemons(pokemons) {
   for (let i = 0; i < pokemons.length; i++) {
     const pokemon = pokemons[i];
-    // console.log(pokemon);
-    // Add pokemon arrays of pokemon object to session / local storage, and find a way to store them uniquely
-    // All generations should be stored as seperate arrays
-    // If f.ex 1.gen been stored, when trying to fetch again, it should be retrieved from storage instead of fetching from the api
     createPokeCards(pokemon);
   }
 }
